@@ -1,8 +1,12 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Antonela Debiasi
+---
+pronoun: https://pronoun.is/she
 ---
 nickname: antonela
 ---

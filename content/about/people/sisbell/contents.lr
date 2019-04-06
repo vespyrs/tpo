@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Shane Isbell
 ---
 nickname: sisbell
 ---
-pronoun: he
+pronoun: https://pronoun.is/he
 ---
 twitter_handle: sisbell
 ---

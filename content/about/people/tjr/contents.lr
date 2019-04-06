@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Tom Ritter
 ---
 nickname: tjr
 ---
-pronoun: he
+pronoun: https://pronoun.is/he
 ---
 twitter_handle: tomrittervg
 ---

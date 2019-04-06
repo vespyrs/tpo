@@ -1,6 +1,8 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Iain Learmonth
 ---
@@ -8,7 +10,7 @@ nickname: irl
 ---
 twitter_handle: iainlearmonth
 ---
-pronoun: he
+pronoun: https://pronoun.is/he
 ---
 gpg: https://db.torproject.org/fetchkey.cgi?fingerprint=A8F7BA5041E133339CBA169676D58093F540ABCD
 ---

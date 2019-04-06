@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Maggie Haughey
 ---
 nickname: wayward
 ---
-pronoun: she
+pronoun: https://pronoun.is/she?or=they
 ---
 twitter_handle: meochaidha
 ---

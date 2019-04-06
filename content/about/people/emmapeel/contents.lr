@@ -1,10 +1,12 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: emmapeel
 ---
-pronoun: she
+pronoun: https://pronoun.is/she
 ---
 nickname: emmapeel
 ---

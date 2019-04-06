@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Wendy Seltzer
 ---
 nickname: wseltzer
 ---
-pronoun: she
+pronoun: https://pronoun.is/she
 ---
 gpg: https://db.torproject.org/fetchkey.cgi?fingerprint=4263006A4506740FAD871430BAEBA2D7456CAD51
 ---

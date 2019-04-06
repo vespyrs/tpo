@@ -8,7 +8,7 @@ public
 *.po
 contents+*.lr
 
-*.ipynb
+*.ipynb*
 
 *.egg-info
 *.pyc
@@ -41,6 +41,8 @@ tramp
 # eshell files
 /eshell/history
 /eshell/lastdir
+
+node_modules
 
 # elpa packages
 /elpa/

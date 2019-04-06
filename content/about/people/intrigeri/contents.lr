@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: intrigeri
 ---
 nickname: intrigeri
 ---
-pronoun: he
+pronoun: https://pronoun.is/he
 ---
 gpg: https://gaffer.ptitcanardnoir.org/intrigeri/contact/
 ---

@@ -1,10 +1,12 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Bekeela Davila
 ---
-pronoun: she
+pronoun: https://pronoun.is/she
 ---
 nickname: bdavila
 ---

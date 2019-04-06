@@ -1,6 +1,8 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 twitter_handle: ohmygodel
 ---
@@ -14,4 +16,4 @@ image: /static/images/people/ohmygodel.png
 ---
 description:
 
-NRL researcher in applied cryptography with an interest in Tor’s security and privacy.
+NRL researcher in applied cryptography with an interest in Tor's security and privacy.

@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Richard Pospesel
 ---
 nickname: pospeselr
 ---
-pronoun: they/them
+pronoun: https://pronoun.is/they/them
 ---
 twitter_handle: pospeselr
 ---

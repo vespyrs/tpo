@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Erin Wyatt
 ---
 nickname: ewyatt
 ---
-pronoun: she
+pronoun: https://pronoun.is/she
 ---
 gpg: /static/keys/ewyatt.txt
 ---

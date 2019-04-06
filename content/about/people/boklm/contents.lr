@@ -1,12 +1,14 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Nicolas Vigier
 ---
 nickname: boklm
 ---
-pronoun: he
+pronoun: https://pronoun.is/he
 ---
 gpg: https://www.torproject.org/images/pgp-key.png
 ---

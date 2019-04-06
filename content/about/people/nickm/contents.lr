@@ -1,10 +1,12 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Nick Mathewson
 ---
-pronoun: he
+pronoun: https://pronoun.is/he
 ---
 nickname: nickm
 ---

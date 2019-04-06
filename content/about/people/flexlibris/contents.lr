@@ -1,10 +1,12 @@
 _model: person
 ---
-role: core
+_hidden: yes
+---
+role:core
 ---
 name: Alison Macrina
 ---
-pronoun: she
+pronoun: https://pronoun.is/she
 ---
 twitter_handle: flexlibris
 ---
