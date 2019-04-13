@@ -40,6 +40,11 @@ name = Français (fr)
 url_prefix = /fr/
 locale = fr
 
+[alternatives.he]
+name =  עברית (he)
+url_prefix = /he/
+locale = he
+
 [alternatives.id]
 name = Indonesia (id)
 url_prefix = /id/
@@ -69,6 +74,11 @@ locale = ko
 name = Português Brasil (pt-BR)
 url_prefix = /pt-BR/
 locale = pt-BR
+
+[alternatives.ro]
+name = Română (ro)
+url_prefix = /ro/
+locale = ro
 
 [alternatives.ru]
 name = Русский (ru)
