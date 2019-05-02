@@ -70,10 +70,20 @@ name = 한국어 (ko)
 url_prefix = /ko/
 locale = ko
 
+[alternatives.pl]
+name = polski (pl)
+url_prefix = /pl/
+locale = pl
+
 [alternatives.pt-BR]
-name = Português Brasil (pt-BR)
+name = Português Br. (pr-BR)
 url_prefix = /pt-BR/
 locale = pt-BR
+
+[alternatives.pt-PT]
+name = Português Port. (pt-PT)
+url_prefix = /pt-PT/
+locale = pt-PT
 
 [alternatives.ro]
 name = Română (ro)
