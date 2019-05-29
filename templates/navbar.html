@@ -6,9 +6,10 @@
   <nav class="navbar no-background navbar-expand-lg navbar-dark fixed-top bg-dark p-4">
 {% endif %}
     <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">
-      <img alt="{{ 'The Tor Project' }}" src="{{ '/static/images/tor-logo.svg'|asseturl }}" >
+      <img alt="{{ 'The Tor Project' }}" src="{{ '/static/images/tor-logo@2x.png'|asseturl }}" >
       <span class="sr-only">Tor Logo</span>
     </a>
+    <a href="https://donate.torproject.org" title="{{ _("Donate") }}"><h5><span class="badge badge-warning p-2">{{ _("DONATE NOW") }}</span></h5></a>
     <label for="nav-toggle">
       <a class="btn btn-lg btn-primary navbar-toggler text-white p-3" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         {{ _("Menu") }} <span class="navbar-toggler-icon ml-1"></span>
@@ -55,7 +56,7 @@
       {% set download = site.get('/download') %}
       <div class="pull-right">
           <a class="btn btn-outline-light pull-right" href="{{ this.url_to(download)|url(alt=this.alt) }}">
-            {{ _("Download Tor Browser") }}<span class="oi oi-arrow-bottom-png ml-2 p-1"></span>
+            {{ _("Download Tor Browser") }}<i class="ml-2 pt-1 fas fa-arrow-down-png"></i>
           </a>
       </div>
   </nav>

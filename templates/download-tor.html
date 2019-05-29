@@ -1,0 +1,52 @@
+<div class="container py-3 mt-5">
+  <div class="row">
+    <p>{{ this.body }}</p>
+  </div>
+</div>
+<div class="container py-3">
+  <div class="row">
+    <h2 class="text-primary">Tor Source</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Version</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set t = bag('versions', 'tor-stable') %}
+        {% set a = bag('versions', 'tor-alpha') %}
+        {% set download_link = 'https://dist.torproject.org/tor-' + t.version + '.tar.gz' %}
+        {% set sig_link = download_link + '.asc' %}
+        {% set alpha_download_link = 'https://dist.torproject.org/tor-' + a.version + '.tar.gz' %}
+        {% set alpha_sig_link = alpha_download_link + '.asc' %}
+        <tr>
+          <td>{{ t.version }}</td>
+          <td class="text-right"><a href="{{ download_link }}">{{ _('Download') }}</a> (<a href="{{ sig_link }}">{{ _('sig') }}</a>)</td>
+        </tr>
+        {% if t.version != a.version %}
+          <tr>
+            <td>{{ a.version }}</td>
+            <td class="text-right"><a href="{{ alpha_download_link }}">{{ _('Download') }}</a> (<a href="{{ alpha_sig_link }}">{{ _('sig') }}</a>)</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <h2 class="text-primary">Windows Expert Bundle</h2>
+    {% set t = bag('versions', 'torbrowser-stable') %}
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Windows 10, 8, 7, Vista, XP, 2000, 2003 Server, ME, and Windows 98SE</td>
+          <td>Contains just Tor and nothing else.</td>
+          <td class="text-right">
+            {% from "macros/downloads.html" import render_windows_expert %}
+            {{ render_windows_expert(t.version, t.win32) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

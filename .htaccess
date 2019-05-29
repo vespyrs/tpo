@@ -28,8 +28,6 @@ RewriteRule ^tordnsel/dist/(.*) https://2019.www.torproject.org/dist/tordnsel/$1
 
 # Projects
 RewriteRule ^projects/torbrowser/design(.*) https://2019.www.torproject.org/projects/torbrowser/design/ [R=302,L]
-# Bug 29951: redirect RecommendedTBBVersions until its format is fixed
-RewriteRule ^projects/torbrowser/RecommendedTBBVersions(.*) https://2019.www.torproject.org/projects/torbrowser/RecommendedTBBVersions$1 [R=302,L]
 RewriteRule ^projects/torbrowser/RecommendedTBBVersions - [L]
 RewriteRule ^projects/torbrowser(.*) /download$1 [R=302,L]
 RewriteRule ^projects/gettor(.*) https://gettor.torproject.org/ [R=302,L]
@@ -67,7 +65,7 @@ RewriteRule ^press/press(.*) /press [R=302,L]
 
 # other (feel free to categorize)
 RewriteRule ^people(.*) /about/people$1 [R=302,L]
-RewriteRule ^donate/$ https://donate.torproject.org [R=302,L]
+RewriteRule ^donate$ https://donate.torproject.org [R=302,L]
 RewriteRule ^about/contact(.*) /contact$1 [R=302,L]
 RewriteRule ^contact.html$  /contact/ [R=302,L]
 
