@@ -10,11 +10,11 @@
       <div class="oval-2 bg-darker mx-auto">
         {% set alt_l = alt %}
         {% set t = bag('versions', 'torbrowser-stable') %}
-        {% set download_prefix = 'https://www.torproject.org/dist/torbrowser/' + t.version + '/' %}
-        {% if alt == 'en' %}
-          {% set alt = 'en-US' %}
-        {% elif alt == 'es' %}
-          {% set alt = 'es-ES' %}
+        {% set download_prefix = '/dist/torbrowser/' + t.version + '/' %}
+        {% if alt_l == 'en' %}
+          {% set alt_l = 'en-US' %}
+        {% elif alt_l == 'es' %}
+          {% set alt_l = 'es-ES' %}
         {% endif %}
         {% if id == 'windows' %}
           {% set download_link = download_prefix + 'torbrowser-install-win64-' + t.version + '_' + alt_l + '.exe' %}
@@ -42,11 +42,9 @@
   </div>
 </div>
 <div class="row p-5">
-  <a class="mx-auto text-white py-3" href="{{ 'languages'|url(alt=this.alt) }}"><u>{{ _('Download in another language or platform') }}</u></a>
-  <a class="mx-auto text-white py-3" href="{{ 'alpha'|url(alt=this.alt) }}"><u>{{ _('Advanced Install Options') }}</u></a>
-  {% set v = bag('versions', 'tor-stable') %}
-  {% set download_source = 'https://dist.torproject.org/tor-' + v.version + '.tar.gz' %}
-  <a class="mx-auto text-white py-3" href="{{ download_source }}"><u>{{ _('Download Source Tarball') }}</u></a>
+  <a class="mx-auto text-white py-3 text-center" href="{{ 'languages'|url(alt=this.alt) }}"><u>{{ _('Download in another language or platform') }}</u></a>
+  <a class="mx-auto text-white py-3 text-center" href="{{ 'alpha'|url(alt=this.alt) }}"><u>{{ _('Download the latest alpha build') }}</u></a>
+  <a class="mx-auto text-white py-3 text-center" href="{{ 'tor'|url(alt=this.alt) }}"><u>{{ _('Download Tor Source Code') }}</u></a>
 </div>
 <div class="hidden-sm row p-md-5 justify-content-center window-bg">
   <a class="mx-auto text-white text-center py-md-5" href="https://blog.torproject.org/category/tags/tor-browser"><u>{{ _('Read the latest release announcements') }}</u></a>
