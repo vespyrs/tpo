@@ -20,6 +20,11 @@ name = বাংলা ভাষা  (bn)
 url_prefix = /bn/
 locale = bn
 
+[alternatives.ca]
+name = Català (ca)
+url_prefix = /ca/
+locale = ca
+
 [alternatives.da]
 name = Dansk (da)
 url_prefix = /da/
