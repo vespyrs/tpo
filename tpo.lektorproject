@@ -90,6 +90,11 @@ name = Melayu (ms)
 url_prefix = /ms/
 locale = ms
 
+[alternatives.nl]
+name = Nederlands (nl)
+url_prefix = /nl/
+locale = nl
+
 [alternatives.pl]
 name = polski (pl)
 url_prefix = /pl/
