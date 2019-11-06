@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" {% if bag('alternatives', this.alt, 'direction') == 'text-right' %}dir="rtl"{% endif %}>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{  this.alt }}" {% if bag('alternatives', this.alt, 'direction') == 'text-right' %}dir="rtl" {% endif %}>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ _('Defend yourself against tracking and surveillance. Circumvent censorship.') }} | {{ this.title }}">
@@ -11,7 +11,6 @@
 <meta property="og:title" content="{{ _('The Tor Project | Privacy & Freedom Online') }}" />
 <meta property="og:description" content="{{ _('Defend yourself against tracking and surveillance. Circumvent censorship.') }}" />
 <meta property="og:image" content="https://www.torproject.org/static/images/tor-project-logo-onions.png" />
-<link rel="stylesheet" href="{{ '/static/css/digital-climate-strike/main.css'|asseturl }}">
 <link rel="stylesheet" href="{{ '/static/css/bootstrap.css'|asseturl }}">
 <link rel="stylesheet" href="{{ '/static/fonts/fontawesome/css/all.min.css'|asseturl }}" rel="stylesheet">
 <!-- Standard favicon -->
@@ -19,3 +18,7 @@
 <!-- Recommended favicon format -->
 <link rel="icon" type="image/png" href="https://www.torproject.org/static/images/favicon/favicon.png">
 <title>{{ _("Tor Project") }} | {% block title %}{{ this.title }}{% endblock %}</title>
+<body class="no-gutters">
+  <header>
+    {% include 'navbar.html' %}
+  </header>
