@@ -49,7 +49,7 @@ RewriteRule ^projects/obfsproxy-instructions(.*) https://2019.www.torproject.org
 RewriteRule ^projects/obfsproxy(.*) https://2019.www.torproject.org/docs/pluggable-transports [R=302,L]
 
 #Relays
-RewriteRule ^relay-guide(.*) https://trac.torproject.org/projects/tor/wiki/TorRelayGuide [R=302,L]
+RewriteRule ^relay-guide(.*) https://community.torproject.org/relay/ [R=302,L]
 
 # GetInvolved
 RewriteRule ^getinvolved/$ https://2019.www.torproject.org/getinvolved/volunteer [R=302,L]
@@ -88,7 +88,7 @@ RewriteRule ^download/easy-download(.*) /download [R=302,L]
 RewriteRule ^download/download-easy(.*) /download [R=302,L]
 
 # Relays
-RewriteRule ^relays(.*) https://2019.www.torproject.org/getinvolved/relays [R=302,L]
+RewriteRule ^relays(.*) https://community.torproject.org/relay/ [R=302,L]
 
 # Index Pages
 RewriteRule ^about/overview.html(.*) /about/history [R=302,L]
