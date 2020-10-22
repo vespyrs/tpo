@@ -1,3 +1,67 @@
+{% set alt_l = alt %}
+{% set t = bag('versions', 'torbrowser-stable') %}
+{% set download_prefix = '/dist/torbrowser/' + t.version + '/' %}
+{% set version = t.version %}
+{% if alt_l == 'en' %}
+  {% set alt_l = 'en-US' %}
+{% elif alt_l == 'es' %}
+  {% set alt_l = 'es-ES' %}
+{% endif %}
+<script type="text/javascript">
+var OSName = "Unknown OS";
+if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+if (navigator.appVersion.indexOf("X11")!=-1) OSName="GNU";
+if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+//console.log('Your OS is: '+OSName);
+// var download_prefix = $('#my-data').data('prefix');
+var download_prefix = '{{download_prefix|tojson}}';
+
+if (OSName ==  "Windows"){
+    if (navigator.userAgent.indexOf("WOW64") != -1 || 
+        navigator.userAgent.indexOf("Win64") != -1 ){
+       alert("This is a 64 bit Windows OS");
+       var arch = 'win64';
+    } 
+    else {
+      var arch = 'win32';
+    }
+    var download_link = "{{ download_prefix }}" + 'torbrowser-install-' + arch + '-' + "{{ version }}" + '_' + "{{ alt_l }}" + '.exe';
+    var sig_link = download_link + '.asc';
+    var label = "Download for Windows";
+    var id = "fa-windows-png"
+    }
+
+else if (OSName == "MacOS"){
+    var download_link = "{{ download_prefix }}" + 'TorBrowser-' + "{{ version }}" + '-osx64' + '_' + "{{ alt_l }}" + '.dmg';
+    var sig_link = download_link + '.asc';
+    var label = "Download for OS X";
+    var id = "fa-apple-png"
+    }
+
+else {
+    if (navigator.userAgent.indexOf("Linux x86_64") != -1 || navigator.userAgent.indexOf("Linux aarch64") != -1 || navigator.userAgent.indexOf("Linux armv8l") != -1){
+      alert("This is a 64 bit Linux OS");
+      var arch = 'linux64';
+    }
+    else {
+      var arch = 'linux32'
+    } 
+    var download_link = "{{ download_prefix }}" + 'tor-browser-linux64-' + arch + '-' + "{{ version }}" + '_' + alt_l + '.tar.xz';
+    var sig_link = download_link + '.asc';
+    var label = "GNU/Linux"
+    var id = "fa-linux-png"
+}
+
+console.log(download_link);
+console.log('download prefix is'+download_prefix);
+window.onload = function() {
+  document.getElementById('downloadButton').innerHTML = label;
+  document.getElementById("downloadIcon").classList.add(id);
+  document.getElementById('downloadButton').href = 'https://www.torproject.org' + download_link;
+  document.getElementById("downloadLink").href = 'https://www.torproject.org' + download_link;
+}
+</script>
 <div class="row">
   <h1 class="mx-auto display-2 text-white text-center">{{ _('Defend yourself.') }}</h1>
 </div>
@@ -5,46 +69,27 @@
   <h3 class="mx-auto defend text-white text-center">{{ _('Protect yourself against tracking, surveillance, and censorship.') }}</h3>
 </div>
 <div class="row p-5 mx-auto">
-  {% for id, item in bag('platforms').items() %}
-    <div class="col-sm-6 col-md-3 py-3">
+    <div style="margin:auto">
       <div class="oval-2 bg-darker">
-        {% set alt_l = alt %}
-        {% set t = bag('versions', 'torbrowser-stable') %}
-        {% set download_prefix = '/dist/torbrowser/' + t.version + '/' %}
-        {% if alt_l == 'en' %}
-          {% set alt_l = 'en-US' %}
-        {% elif alt_l == 'es' %}
-          {% set alt_l = 'es-ES' %}
-        {% endif %}
-        {% if id == 'windows' %}
-          {% set download_link = download_prefix + 'torbrowser-install-win64-' + t.version + '_' + alt_l + '.exe' %}
-          {% set sig_link = download_link + '.asc' %}
-        {% elif id == 'apple' %}
-          {% set download_link = download_prefix + 'TorBrowser-' + t.version + '-osx64' + '_' + alt_l + '.dmg' %}
-          {% set sig_link = download_link + '.asc' %}
-        {% else %}
-          {% set download_link = download_prefix + 'tor-browser-linux64-' + t.version + '_' + alt_l + '.tar.xz' %}
-          {% set sig_link = download_link + '.asc' %}
-        {% endif %}
-        <a class="downloadLink" href="{{ download_link }}">
-          <i class="text-light fab fa-{{ id }}-png"></i>
+        <a class="downloadLink" id="downloadLink" href="">
+          <i class="text-light fab" id="downloadIcon"></i>
         </a>
-        <a class="btn btn-primary mt-4" href="{{ download_link }}">{{ _('Download for') }} {{ item.label }}</a>
+        <a class="downloadLink btn btn-primary mt-4" id="downloadButton" href=""></a>
         <a class="link" href="{{ sig_link }}"><span class="nick text-white">{{ _('Signature') }}</span></a>
         <a class="link" href="{{ 'https://support.torproject.org/' + this.alt + '/tbb/how-to-verify-signature/' }}" target="_blank"><i style="font-size:10px;" class="text-light fas fa-question-circle"></i></a>
       </div>
     </div>
-    {% endfor %}
-    <div class="col-sm-6 col-md-3 py-3">
-      <div class="oval-2 bg-darker mx-auto">
-        <a href="#android">
-          <i class="text-light fab fa-android-png"></i>
-        </a>
-        <a class="btn btn-primary mt-4" href="#android">{{ _('Download for Android') }}</a>
-      </div>
-    </div>
 </div>
-
+<!--
+<div class="col-sm-6 col-md-3 py-3">
+  <div class="oval-2 bg-darker mx-auto">
+    <a href="#android">
+      <i class="text-light fab fa-android-png"></i>
+    </a>
+    <a class="btn btn-primary mt-4" href="#android">{{ _('Download for Android') }}</a>
+  </div>
+</div>
+-->
 <div class="row p-5">
   <a class="mx-auto text-white py-3 text-center" href="{{ 'languages'|url(alt=this.alt) }}"><u>{{ _('Download in another language or platform') }}</u></a>
   <a class="mx-auto text-white py-3 text-center" href="{{ 'alpha'|url(alt=this.alt) }}"><u>{{ _('Download the latest alpha build') }}</u></a>
