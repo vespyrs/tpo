@@ -1,3 +1,15 @@
+<script>
+  function detectLang() {
+    if (navigator.languages != undefined) {
+      return navigator.languages[0]
+    }
+    else {
+      return navigator.language;
+    }
+  }
+  var locale = detectLang();
+  console.log(locale);
+</script>
 <div class="row">
   <h1 class="mx-auto display-2 text-center text-white">{{ _('Browse Privately.') }}</h1>
 </div>

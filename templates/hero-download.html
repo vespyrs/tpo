@@ -7,61 +7,17 @@
 {% elif alt_l == 'es' %}
   {% set alt_l = 'es-ES' %}
 {% endif %}
-<script type="text/javascript">
-var OSName = "Unknown OS";
-if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
-if (navigator.appVersion.indexOf("X11")!=-1) OSName="GNU";
-if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
-//console.log('Your OS is: '+OSName);
-// var download_prefix = $('#my-data').data('prefix');
-var download_prefix = '{{download_prefix|tojson}}';
-
-if (OSName ==  "Windows"){
-    if (navigator.userAgent.indexOf("WOW64") != -1 || 
-        navigator.userAgent.indexOf("Win64") != -1 ){
-       alert("This is a 64 bit Windows OS");
-       var arch = 'win64';
-    } 
-    else {
-      var arch = 'win32';
-    }
-    var download_link = "{{ download_prefix }}" + 'torbrowser-install-' + arch + '-' + "{{ version }}" + '_' + "{{ alt_l }}" + '.exe';
-    var sig_link = download_link + '.asc';
-    var label = "Download for Windows";
-    var id = "fa-windows-png"
-    }
-
-else if (OSName == "MacOS"){
-    var download_link = "{{ download_prefix }}" + 'TorBrowser-' + "{{ version }}" + '-osx64' + '_' + "{{ alt_l }}" + '.dmg';
-    var sig_link = download_link + '.asc';
-    var label = "Download for OS X";
-    var id = "fa-apple-png"
-    }
-
-else {
-    if (navigator.userAgent.indexOf("Linux x86_64") != -1 || navigator.userAgent.indexOf("Linux aarch64") != -1 || navigator.userAgent.indexOf("Linux armv8l") != -1){
-      alert("This is a 64 bit Linux OS");
-      var arch = 'linux64';
-    }
-    else {
-      var arch = 'linux32'
-    } 
-    var download_link = "{{ download_prefix }}" + 'tor-browser-linux64-' + arch + '-' + "{{ version }}" + '_' + alt_l + '.tar.xz';
-    var sig_link = download_link + '.asc';
-    var label = "GNU/Linux"
-    var id = "fa-linux-png"
-}
-
-console.log(download_link);
-console.log('download prefix is'+download_prefix);
-window.onload = function() {
-  document.getElementById('downloadButton').innerHTML = label;
-  document.getElementById("downloadIcon").classList.add(id);
-  document.getElementById('downloadButton').href = 'https://www.torproject.org' + download_link;
-  document.getElementById("downloadLink").href = 'https://www.torproject.org' + download_link;
-}
+{% set a = bag('download-alternatives') %}
+<script> 
+  altData = [];
+  var download_prefix = "{{download_prefix}}";
+  var version = "{{version}}"
 </script>
+{% for id, item in bag('download-alternatives').items() %}
+<script>
+  altData.push(["{{id}}", "{{item.language}}"]);
+</script>
+{% endfor %}
 <div class="row">
   <h1 class="mx-auto display-2 text-white text-center">{{ _('Defend yourself.') }}</h1>
 </div>
@@ -74,8 +30,8 @@ window.onload = function() {
         <a class="downloadLink" id="downloadLink" href="">
           <i class="text-light fab" id="downloadIcon"></i>
         </a>
-        <a class="downloadLink btn btn-primary mt-4" id="downloadButton" href=""></a>
-        <a class="link" href="{{ sig_link }}"><span class="nick text-white">{{ _('Signature') }}</span></a>
+        <a class="downloadLink btn btn-primary mt-4" id="downloadButton" href=""><br></a>
+        <a class="link" id="sigLink" href="" download><span class="nick text-white">{{ _('Signature') }}</span></a>
         <a class="link" href="{{ 'https://support.torproject.org/' + this.alt + '/tbb/how-to-verify-signature/' }}" target="_blank"><i style="font-size:10px;" class="text-light fas fa-question-circle"></i></a>
       </div>
     </div>
@@ -90,7 +46,7 @@ window.onload = function() {
   </div>
 </div>
 -->
-<div class="row p-5">
+<div class="row p-5" style="margin-top:45px">
   <a class="mx-auto text-white py-3 text-center" href="{{ 'languages'|url(alt=this.alt) }}"><u>{{ _('Download in another language or platform') }}</u></a>
   <a class="mx-auto text-white py-3 text-center" href="{{ 'alpha'|url(alt=this.alt) }}"><u>{{ _('Download the latest alpha build') }}</u></a>
   <a class="mx-auto text-white py-3 text-center" href="{{ 'tor'|url(alt=this.alt) }}"><u>{{ _('Download Tor Source Code') }}</u></a>
